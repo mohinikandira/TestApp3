@@ -1,0 +1,23 @@
+﻿@model TestApp3.Dto.DepartmentDto
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+@{
+}
+<form method="post"asp-controller="Department"asp-action="AddEdit">
+
+    <table class="table-bordered">
+        <tr>
+            <td>
+                <label for="Name">Name</label>
+                <input type="text"asp-for="Name" />
+            </td>
+            <td>
+                <label for="Code">Code</label>
+                <input type="text" asp-for="Code" />
+            </td>
+            <td>
+                <button>submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
