@@ -1,0 +1,43 @@
+﻿@model TestApp3.Dto.EmployeeDto
+
+
+<form method="post"asp-controller="Employee"asp-action="addedit">
+    <input type="hidden" asp-for="Id" />
+    <table class="table-bordered table">
+
+        <tr>
+            <td>
+                <label for="Name">Name</label>
+                <input type="text"asp-for="Name" />
+            </td>
+            <td>
+                <label for="Gender">Gender</label>
+                <input type="radio" value="female" asp-for="Gender" /> female
+                <input type="radio" value="male" asp-for="Gender" /> male
+            </td>
+            <td>
+                <label for="DepartmentId">DepartmentId</label>
+                <select asp-items="@(new SelectList(@ViewBag.emp,"Id", "Name"))" asp-for="DepartmentId">
+                    
+                </select>
+             
+            </td>
+            <td>
+                <button type="submit">submit</button>
+                <a href="/Employee/index">back</a>
+            </td>
+        </tr>
+
+
+
+
+    </table>
+
+
+
+
+
+
+
+
+</form>

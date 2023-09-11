@@ -1,11 +1,11 @@
 ﻿@model List<TestApp3.Dto.DepartmentDto>
 
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+  
 
 @{
 }
 
-<table>
+<table class="table-bordered table">
     <tr>
         <th>Id</th>
         <th>name</th>
@@ -26,12 +26,12 @@
                 <a href="/Department/AddEdit/@item.Id">AddEdit</a>
             </td>
             <td>
-                <a href="/Department/AddEdit/@item.Id">Delete</a>
+                <a href="/Department/Delete/@item.Id">Delete</a>
             </td>
         </tr>
         
 
     }
   
-
-</table>
+    </table>
+    <a href="/Department/addEdit">Addrecourd</a>

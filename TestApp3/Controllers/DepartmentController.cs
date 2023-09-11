@@ -16,22 +16,46 @@ namespace TestApp3.Controllers
         [HttpGet]
         public IActionResult AddEdit(int ?id)
         {
+
             DepartmentDto dep= new DepartmentDto();
+            if (id > 0)
+            {
+             var demo=   db.Departments.Find(id);
+
+                dep.Name = demo.Name;
+                dep.Code=demo.Code;
+                dep.Id = demo.Id;
+
+            }
 
             return View(dep);
         }
         [HttpPost]
         public IActionResult AddEdit(DepartmentDto model)
         {
-            Department department= new Department();
-            department.Id = model.Id;
-            department.Name = model.Name;
-            department.Code = model.Code;
-            
-            db.Departments.Add(department);
-            db.SaveChanges();
+            if(model.Id==0)
+            {
+                Department department = new Department();
+                department.Id = model.Id;
+                department.Name = model.Name;
+                department.Code = model.Code;
+                db.Departments.Add(department);
+                db.SaveChanges();
+            }
 
-            return View();
+            else
+            {
+             Department depa=   db.Departments.Find(model.Id);
+               depa.Name = model.Name;
+                depa.Code = model.Code;
+                db.Departments.Update(depa);
+                db.SaveChanges();   
+            }
+            
+           
+            
+
+            return RedirectToAction("index");
         }
         public IActionResult Delete(int id)
         {
